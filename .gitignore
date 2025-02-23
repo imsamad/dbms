@@ -30,7 +30,7 @@
 CMakeCache.txt
 CMakeFiles/
 /Makefile
-makefile
+#makefile
 *.cmake
 
 # IDE and editor files
