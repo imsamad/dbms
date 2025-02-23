@@ -1,0 +1,50 @@
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.elf
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Dependency files
+*.d
+
+# Build directories
+/build/
+/bin/
+/lib/
+/dist/
+
+# CMake and Makefiles
+CMakeCache.txt
+CMakeFiles/
+/Makefile
+makefile
+*.cmake
+
+# IDE and editor files
+*.vscode/
+*.idea/
+*.code-workspace
+*.DS_Store
+
+# Autotools
+autom4te.cache/
+config.log
+config.status
+config.h
+config.h.in
+
+# Coverage reports
+*.gcda
