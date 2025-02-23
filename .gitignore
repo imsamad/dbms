@@ -29,7 +29,7 @@
 # CMake and Makefiles
 CMakeCache.txt
 CMakeFiles/
-/Makefile
+#/Makefile
 #makefile
 *.cmake
 
