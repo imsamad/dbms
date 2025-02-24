@@ -15,12 +15,12 @@
 
 #define NoError 0
 typedef  void* Nullptr;
-Nullptr nullptr = 0;
+Nullptr nullPtr = 0;
 
 #define find_last(x) find_last_linear(x)
 #define reterr(x) \
     errno = (x); \
-    return nullptr;
+    return nullPtr;
 
 typedef unsigned short int int16;
 typedef unsigned int int32;

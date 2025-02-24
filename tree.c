@@ -45,12 +45,12 @@ Leaf *find_last_linear(Node *parent) {
         reterr(NoError);
 
     Leaf *l;
-    for (l = parent -> east, l -> east; l = l -> east);
+    for (l = parent -> east; l -> east; l = l -> east);
     assert(l);
     return l;
 }
 
-Leaf *create_leaf(Node *parent, int8 *key, int8 value, int16 count) {
+Leaf *create_leaf(Node *parent, int8 *key, int8 *value, int16 count) {
     assert(parent);
 
     Leaf *l  = find_last(parent);
@@ -65,11 +65,11 @@ Leaf *create_leaf(Node *parent, int8 *key, int8 value, int16 count) {
     else {
         l -> east = new;
     }
-    Node *n;
+    // Node *n;
     zero((int8 *)new, size);
     new -> tag = TagLeaf;
     new -> west = (!l) ?
-        (Node *)parent : (Leaf * )l;
+        (Tree *)parent : (Tree * )l;
 
     strncpy((char*)new->key, (char*)key, 127 );
 
@@ -80,20 +80,28 @@ Leaf *create_leaf(Node *parent, int8 *key, int8 value, int16 count) {
 
     new -> size = count;
 
-    return l;
-
+    return new;
 }
 
 int main() {
   Node *n, *n2;
-
+  Leaf *l1;
+  int8 *key, *value;
+  int16 size;
   n = create_node((Node*)&root, (int8*)"/Users");
   assert(n);
   n2 = create_node(n, (int8*)"/Users/login");
   assert(n2);
 
-  printf("%p %p \n", n, n2);
 
+  key = (int8*)"jonas";
+  value = (int8*) "sdkjhncjsd";
+  size = (int16)strlen((char*)value);
+  l1 = create_leaf(n2, key, value, size);
+  assert(l1);
+
+  printf("%p %p \n", n, n2);
+  printf("%s \n",l1->value);
   free(n);
   free(n2);
   return 0;
